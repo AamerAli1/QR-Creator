@@ -29,7 +29,7 @@ def main_app():
             current_file = str(file_manipulation.get_new_file(to_print))
             try:
 
-                file = open(current_file, encoding='UTF-8')
+                file = open(current_file, encoding='ANSI')
                 content = file.readlines()
                 number_of_lines = (len(content))
 
@@ -90,7 +90,7 @@ def main_app():
                 file.close()
 
                 # Extracting product details
-                a_file = open(current_file, encoding='UTF-8')
+                a_file = open(current_file, encoding='ANSI')
                 lines_to_read = list(range(3, number_of_lines))
 
                 item_no_list = []

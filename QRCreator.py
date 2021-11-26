@@ -15,8 +15,6 @@ def createQR(company_name,company_vat,date,time,vat_amt,total_amt,inv_no):
         tax_amount=float(vat_amt),  # or 15.0, 15.00, "15.0", "15.00"
     )
 
-    print(fatoora_obj.base64)
-
     qr = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_H,

@@ -10,9 +10,9 @@ import datetime, time
 
 def HTMLToPDF(input, output):
     options = {
-        'encoding': 'UTF-8',
-        'margin-left': '3mm',
-        'margin-right': '3mm',
+        'encoding': 'ANSI',
+        'margin-left': '5mm',
+        'margin-right': '5mm',
         'margin-bottom': '3mm',
         'margin-top': '3mm',
 
@@ -38,7 +38,7 @@ def toPrinter(pdf, printerName):
 
     args = [
         "-dPrinted", "-dBATCH", "-dNOSAFER", "-dNOPAUSE", "-dNOPROMPT"
-                                                          "-q",
+        "-dFIXEDMEDIA"                                             "-q",
         "-dNumCopies#1",
         "-sDEVICE#mswinpr2",
         f'-sOutputFile#"%printer%{printerName}"',
