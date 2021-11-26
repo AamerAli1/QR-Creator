@@ -1,0 +1,959 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="{{ style }}" />
+
+	</head>
+
+	<body>
+	{% for x in range(copies) %}
+	
+		<header class = "parent">
+			<div class= "header clearfix">
+					<img src="{{ header }}" alt="Italian Trulli">
+			</div>
+		</header>
+
+			<div class="vat clearfix">
+				<div class="vatleft clearfix">
+				</div>
+				<span>Copy Number : {{x+1}}</span>
+				<div class="vatright clearfix">
+
+
+				</div>
+			</div>
+
+
+		<div class = "main clearfix">
+
+			<div class="invoiceTitle clearfix">
+			<div class="qrleft clearfix">
+				<p></p>
+				<p></p>
+			</div>
+
+			<div class="qrcenter clearfix">
+				<p>{{ header_dict.inv_type}}</p>
+				<img class="qr" src="{{header_dict.QR}}">
+			</div>
+
+
+			<div class="qrright clearfix">
+				<p></p>
+				<p></p>
+			</div>
+
+			</div>
+
+				<br/>
+				<br/>
+				<br/>
+			<div class="customerinfocontainer ">
+
+				<div class="line ">
+					<div class="line-box-left" >
+						<div class="line-box-left-inner">
+
+							<div class="info " style="width: 59%;text-align: center">
+								<p>{{ header_dict.inv_number}}</p>
+							</div>
+
+							<div class="arbtitle " style="width: 40%">
+								<p>رقم الفاتورة</p>
+							</div>
+						</div>
+
+						<div class="line-box-right-inner ">
+							<div class="engtitle">
+								<p>Ref No.</p>
+						</div>
+
+							<div class="info">
+								<p>{{ header_dict.ref_no_1}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p style="font-size: 13px">رقم المرجع</p>
+							</div>
+						</div>
+
+						</div>
+
+
+
+					<div class="line-box-right ">
+						<div class="line-box-left-inner ">
+								<div class="engtitle">
+								<p>Page</p>
+							</div>
+
+							<div class="info">
+								<p> 1/{{total_pages}} </p>
+							</div>
+
+							<div class="arbtitle">
+								<p>الصفحة</p>
+							</div>
+						</div>
+
+						<div class="line-box-right-inner ">
+							<div class="engtitle">
+								<p>Date</p>
+							</div>
+
+							<div class="info">
+								<p>{{ header_dict.date}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p>التاريخ</p>
+							</div>
+
+						</div>
+
+					</div>
+					</div>
+
+
+				<div class="line">
+					<div class="engtitle">
+						<p>Customer Name</p>
+					</div>
+
+					<div class = "info">
+						<p>{{ header_dict.cust_name}}</p>
+					</div>
+
+					<div class = "arbtitle">
+						<p>اسم العميل</p>
+					</div>
+				</div>
+
+				<div class="line">
+					<div class="line-box-left">
+						<div class="engtitle">
+							<p>ِAddress</p>
+						</div>
+
+						<div class="info">
+							<p>{{ header_dict.cust_address}}</p>
+						</div>
+
+						<div class="arbtitle">
+							<p>العنوان</p>
+						</div>
+					</div>
+
+					<div class="line-box-right">
+
+						<div class="engtitle">
+							<p>VAT No.</p>
+						</div>
+
+						<div class="info">
+							<p>{{ header_dict.cust_vat_no}}</p>
+						</div>
+
+						<div class="arbtitle">
+							<p>رقم الضريبي</p>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="line ">
+					<div class="line-box-left" >
+						<div class="line-box-left-inner">
+							<div class ="engtitle">
+								<p style = "font-size: 13px;">weight</p>
+							</div>
+							<div class="info ">
+								<p>{{ header_dict.total_weight}}</p>
+							</div>
+
+							<div class="arbtitle ">
+								<p>الوزن</p>
+							</div>
+						</div>
+
+						<div class="line-box-right-inner ">
+							<div class="engtitle">
+								<p>Ware No.</p>
+						</div>
+
+							<div class="info">
+								<p>{{ header_dict.warehouse_no}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p style="font-size: 12px">المستودع</p>
+							</div>
+						</div>
+
+						</div>
+
+
+
+					<div class="line-box-right ">
+						<div class="line-box-left-inner ">
+								<div class="engtitle">
+								<p>Cust No.</p>
+							</div>
+
+							<div class="info">
+								<p>{{ header_dict.cust_no}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p style="font-size: 11px">رقم العميل</p>
+							</div>
+						</div>
+
+						<div class="line-box-right-inner ">
+							<div class="engtitle">
+								<p style="font-size: 12px">Sales Rep.</p>
+							</div>
+
+							<div class="info">
+								<p>{{header_dict.salesman_name}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p>المندوب</p>
+							</div>
+
+						</div>
+
+					</div>
+					</div>
+				</div>
+<!---------------------------header ends here------------------------------------>
+<!-- ---------------------Table starts from here ------------------------------------- -->
+			</div>
+			</div>
+		{% if total_pages == 1%}
+		<div class = itemstable>
+				<table>
+					<tr>
+						<th  style="width: 110px;border: none">item No</th>
+						<th  style="width: 480px;border: none">Item Name</th>
+						<th  style="width: 30px;border: none">Unit</th>
+						<th  style="width: 20px;border: none">Quantity</th>
+						<th  style="width: 100px;border:none">Unit Price</th>
+						<th  style="width: 100px;border: none">Amount</th>
+					</tr>
+					<tr>
+						<th style="border: none">رقم الصنف</th>
+						<th style="border: none">البيان</th>
+						<th style="border: none">الوحدة</th>
+						<th style="border:none">الكمية</th>
+						<th style="border: none">سعر الوحدة</th>
+						<th style="border:none">الاجمالي</th>
+					</tr>
+					{% for n in range(remaining_item) %}
+						<tr>
+						<td>
+							{{product_dict.item_no[n]}}
+						</td>
+						<td>
+							{{product_dict.item_english_name[n]}}
+						</td>
+						<td>
+							{{product_dict.Unit[n]}}
+						</td>
+						<td>
+							{{product_dict.quantity[n]}}
+						</td>
+						<td>
+							{{product_dict.price[n]}}
+						</td>
+						<td>
+							{{product_dict.excl_vat[n]}}
+						</td>
+					</tr>
+					{% endfor %}
+						</table>
+					{% for n in range(remaining_item,16) %}
+						<br>
+					{% endfor %}
+		</div>
+{% elif total_pages > 1%}
+			{% if remaining_item <= 16 and remaining_item >= 0 %}
+				{% for i in range(total_pages) %}
+					{% set start=i*24 %}
+					{% set end=start+24 %}
+					{% if i == total_pages-1 %}
+						{% if remaining_item == 0 %}
+							{% for i in range(0,24) %}
+								<br>
+							{% endfor %}
+						{% else %}
+							{% set last_range = end-24+16 %}
+							<div class = itemstable>
+							<table>
+						<tr>
+						<th  style="width: 110px;border: none">item No</th>
+						<th  style="width: 480px;border: none">Item Name</th>
+						<th  style="width: 30px;border: none">Unit</th>
+						<th  style="width: 20px;border: none">Quantity</th>
+						<th  style="width: 100px;border:none">Unit Price</th>
+						<th  style="width: 100px;border: none">Amount</th>
+					</tr>
+					<tr>
+						<th style="border: none">رقم الصنف</th>
+						<th style="border: none">البيان</th>
+						<th style="border: none">الوحدة</th>
+						<th style="border:none">الكمية</th>
+						<th style="border: none">سعر الوحدة</th>
+						<th style="border:none">الاجمالي</th>
+					</tr>
+					{% for n in range(end-24,last_range) %}
+						{% if product_dict.item_no[n] %}
+							<tr>
+						<td>
+							{{product_dict.item_no[n]}}
+						</td>
+						<td>
+							{{product_dict.item_english_name[n]}}
+						</td>
+						<td>
+							{{product_dict.Unit[n]}}
+						</td>
+						<td>
+							{{product_dict.quantity[n]}}
+						</td>
+						<td>
+							{{product_dict.price[n]}}
+						</td>
+						<td>
+							{{product_dict.excl_vat[n]}}
+						</td>
+					</tr>
+						{% else %}
+							<tr><td style="border:none;padding:10px;"></td></tr>
+						{% endif %}
+					{% endfor %}
+				</table>
+						</div>
+						{% endif %}
+					{% else %}
+						<div class = itemstable>
+				<table>
+						<tr>
+						<th  style="width: 110px;border: none">item No</th>
+						<th  style="width: 480px;border: none">Item Name</th>
+						<th  style="width: 30px;border: none">Unit</th>
+						<th  style="width: 20px;border: none">Quantity</th>
+						<th  style="width: 100px;border:none">Unit Price</th>
+						<th  style="width: 100px;border: none">Amount</th>
+					</tr>
+					<tr>
+						<th style="border: none">رقم الصنف</th>
+						<th style="border: none">البيان</th>
+						<th style="border: none">الوحدة</th>
+						<th style="border:none">الكمية</th>
+						<th style="border: none">سعر الوحدة</th>
+						<th style="border:none">الاجمالي</th>
+					</tr>
+					{% for n in range(start,end) %}
+					<tr>
+						<td>
+							{{product_dict.item_no[n]}}
+						</td>
+						<td>
+							{{product_dict.item_english_name[n]}}
+						</td>
+						<td>
+							{{product_dict.Unit[n]}}
+						</td>
+						<td>
+							{{product_dict.quantity[n]}}
+						</td>
+						<td>
+							{{product_dict.price[n]}}
+						</td>
+						<td>
+							{{product_dict.excl_vat[n]}}
+						</td>
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
+						<div style="padding:0px 0px 22px 0px">
+		<header class = "parent">
+			<div class= "header clearfix">
+					<img src="{{ header }}" alt="Italian Trulli">
+			</div>
+		</header>
+
+		<div class="vat clearfix">
+				<div class="vatleft clearfix">
+
+				</div>
+				<span>Copy Number : {{x+1}}</span>
+				<div class="vatright clearfix">
+				</div>
+			</div>
+
+
+		<div class = "main clearfix">
+
+			<div class="invoiceTitle clearfix">
+			<div class="qrleft clearfix">
+				<p></p>
+				<p></p>
+			</div>
+
+			<div class="qrcenter clearfix">
+				<p>{{ header_dict.inv_type}}</p>
+				<img class="qr" src="{{header_dict.QR}}">
+			</div>
+
+
+			<div class="qrright clearfix">
+				<p></p>
+				<p></p>
+			</div>
+
+		</div>
+
+				<br/>
+				<br/>
+				<br/>
+			<div class="customerinfocontainer ">
+
+				<div class="line ">
+					<div class="line-box-left" >
+						<div class="line-box-left-inner">
+
+							<div class="info " style="width: 59%;text-align: center">
+								<p>{{ header_dict.inv_number}}</p>
+							</div>
+
+							<div class="arbtitle " style="width: 40%">
+								<p>رقم الفاتورة</p>
+							</div>
+						</div>
+
+						<div class="line-box-right-inner ">
+							<div class="engtitle">
+								<p>Ref No.</p>
+						</div>
+
+							<div class="info">
+								<p>{{ header_dict.ref_no_1}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p style="font-size: 13px">رقم المرجع</p>
+							</div>
+						</div>
+
+						</div>
+
+
+
+					<div class="line-box-right ">
+						<div class="line-box-left-inner ">
+								<div class="engtitle">
+								<p>Page</p>
+							</div>
+
+							<div class="info">
+								<p> {{i+2}}/{{total_pages}} </p>
+							</div>
+
+							<div class="arbtitle">
+								<p>الصفحة</p>
+							</div>
+						</div>
+
+						<div class="line-box-right-inner ">
+							<div class="engtitle">
+								<p>Date</p>
+							</div>
+
+							<div class="info">
+								<p>{{ header_dict.date}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p>التاريخ</p>
+							</div>
+
+						</div>
+
+					</div>
+					</div>
+
+
+				<div class="line">
+					<div class="engtitle">
+						<p>Customer Name</p>
+					</div>
+
+					<div class = "info">
+						<p>{{ header_dict.cust_name}}</p>
+					</div>
+
+					<div class = "arbtitle">
+						<p>اسم العميل</p>
+					</div>
+				</div>
+
+				<div class="line">
+					<div class="line-box-left">
+						<div class="engtitle">
+							<p>ِAddress</p>
+						</div>
+
+						<div class="info">
+							<p>{{ header_dict.cust_address}}</p>
+						</div>
+
+						<div class="arbtitle">
+							<p>العنوان</p>
+						</div>
+					</div>
+
+					<div class="line-box-right">
+
+						<div class="engtitle">
+							<p>VAT No.</p>
+						</div>
+
+						<div class="info">
+							<p>{{ header_dict.cust_vat_no}}</p>
+						</div>
+
+						<div class="arbtitle">
+							<p>رقم الضريبي</p>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="line ">
+					<div class="line-box-left" >
+						<div class="line-box-left-inner">
+							<div class ="engtitle">
+								<p style = "font-size: 13px;">weight</p>
+							</div>
+							<div class="info ">
+								<p>{{ header_dict.total_weight}}</p>
+							</div>
+
+							<div class="arbtitle ">
+								<p>الوزن</p>
+							</div>
+						</div>
+
+						<div class="line-box-right-inner ">
+							<div class="engtitle">
+								<p>Ware No.</p>
+						</div>
+
+							<div class="info">
+								<p>{{ header_dict.warehouse_no}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p style="font-size: 12px">المستودع</p>
+							</div>
+						</div>
+
+						</div>
+
+
+
+					<div class="line-box-right ">
+						<div class="line-box-left-inner ">
+							<div class="engtitle">
+								<p>Cust No.</p>
+							</div>
+
+							<div class="info">
+								<p>{{ header_dict.cust_no}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p style="font-size: 11px">رقم العميل</p>
+							</div>
+						</div>
+
+						<div class="line-box-right-inner ">
+							<div class="engtitle">
+								<p style="font-size: 12px">Sales Rep.</p>
+							</div>
+
+							<div class="info">
+								<p>{{header_dict.salesman_name}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p>المندوب</p>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+					{% endif %}
+				{% endfor %}
+			{% elif remaining_item > 16 %}
+				{% for i in range(total_pages) %}
+					{% set start = i*24 %}
+					{% set end = start+24 %}
+					{% if i == total_pages-1 %}
+
+						{% for n in range(start,end) %}
+							<br>
+						{% endfor %}
+
+					{% else %}
+						<div class = itemstable>
+				<table>
+						<tr>
+						<th  style="width: 110px;border: none">item No</th>
+						<th  style="width: 480px;border: none">Item Name</th>
+						<th  style="width: 30px;border: none">Unit</th>
+						<th  style="width: 20px;border: none">Quantity</th>
+						<th  style="width: 100px;border:none">Unit Price</th>
+						<th  style="width: 100px;border: none">Amount</th>
+					</tr>
+					<tr>
+						<th style="border: none">رقم الصنف</th>
+						<th style="border: none">البيان</th>
+						<th style="border: none">الوحدة</th>
+						<th style="border:none">الكمية</th>
+						<th style="border: none">سعر الوحدة</th>
+						<th style="border:none">الاجمالي</th>
+					</tr>
+					{% for n in range(start,end) %}
+					{% if product_dict.item_no[n] %}
+						<tr>
+						<td>
+							{{product_dict.item_no[n]}}
+						</td>
+						<td>
+							{{product_dict.item_english_name[n]}}
+						</td>
+						<td>
+							{{product_dict.Unit[n]}}
+						</td>
+						<td>
+							{{product_dict.quantity[n]}}
+						</td>
+						<td>
+							{{product_dict.price[n]}}
+						</td>
+						<td>
+							{{product_dict.excl_vat[n]}}
+						</td>
+					</tr>
+					{% else %}
+						<tr><td style="border:none;padding:10px;"></td></tr>
+					{% endif %}
+					{% endfor %}
+				</table>
+			</div>
+						<div style="padding:0px 0px 22px 0px">
+		<header class = "parent">
+			<div class= "header clearfix">
+					<img src="{{ header }}" alt="Italian Trulli">
+			</div>
+		</header>
+
+		<div class="vat clearfix">
+				<div class="vatleft clearfix">
+				</div>
+				<span>Copy Number : {{x+1}}</span>
+				<div class="vatright clearfix">
+				</div>
+			</div>
+
+
+		<div class = "main clearfix">
+
+			<div class="invoiceTitle clearfix">
+			<div class="qrleft clearfix">
+				<p></p>
+				<p></p>
+			</div>
+
+			<div class="qrcenter clearfix">
+				<p>{{ header_dict.inv_type}}</p>
+				<img class="qr" src="{{header_dict.QR}}">
+			</div>
+
+
+			<div class="qrright clearfix">
+				<p></p>
+				<p></p>
+			</div>
+
+		</div>
+
+				<br/>
+				<br/>
+				<br/>
+			<div class="customerinfocontainer ">
+
+				<div class="line ">
+					<div class="line-box-left" >
+						<div class="line-box-left-inner">
+
+							<div class="info " style="width: 59%;text-align: center">
+								<p>{{ header_dict.inv_number}}</p>
+							</div>
+
+							<div class="arbtitle " style="width: 40%">
+								<p>رقم الفاتورة</p>
+							</div>
+						</div>
+
+						<div class="line-box-right-inner ">
+							<div class="engtitle">
+								<p>Ref No.</p>
+						</div>
+
+							<div class="info">
+								<p>{{ header_dict.ref_no_1}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p style="font-size: 13px">رقم المرجع</p>
+							</div>
+						</div>
+
+						</div>
+
+
+
+					<div class="line-box-right ">
+						<div class="line-box-left-inner ">
+								<div class="engtitle">
+								<p>Page</p>
+							</div>
+
+							<div class="info">
+								<p> {{i+2}}/{{total_pages}} </p>
+							</div>
+
+							<div class="arbtitle">
+								<p>الصفحة</p>
+							</div>
+						</div>
+
+						<div class="line-box-right-inner ">
+							<div class="engtitle">
+								<p>Date</p>
+							</div>
+
+							<div class="info">
+								<p>{{ header_dict.date}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p>التاريخ</p>
+							</div>
+
+						</div>
+
+					</div>
+					</div>
+
+
+				<div class="line">
+					<div class="engtitle">
+						<p>Customer Name</p>
+					</div>
+
+					<div class = "info">
+						<p>{{ header_dict.cust_name}}</p>
+					</div>
+
+					<div class = "arbtitle">
+						<p>اسم العميل</p>
+					</div>
+				</div>
+
+				<div class="line">
+					<div class="line-box-left">
+						<div class="engtitle">
+							<p>ِAddress</p>
+						</div>
+
+						<div class="info">
+							<p>{{ header_dict.cust_address}}</p>
+						</div>
+
+						<div class="arbtitle">
+							<p>العنوان</p>
+						</div>
+					</div>
+
+					<div class="line-box-right">
+
+						<div class="engtitle">
+							<p>VAT No.</p>
+						</div>
+
+						<div class="info">
+							<p>{{ header_dict.cust_vat_no}}</p>
+						</div>
+
+						<div class="arbtitle">
+							<p>رقم الضريبي</p>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="line ">
+					<div class="line-box-left" >
+						<div class="line-box-left-inner">
+							<div class ="engtitle">
+								<p style = "font-size: 13px;">weight</p>
+							</div>
+							<div class="info ">
+								<p>{{ header_dict.total_weight}}</p>
+							</div>
+
+							<div class="arbtitle ">
+								<p>الوزن</p>
+							</div>
+						</div>
+
+						<div class="line-box-right-inner ">
+							<div class="engtitle">
+								<p>Ware No.</p>
+						</div>
+
+							<div class="info">
+								<p>{{ header_dict.warehouse_no}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p style="font-size: 12px">المستودع</p>
+							</div>
+						</div>
+
+						</div>
+
+
+
+					<div class="line-box-right ">
+						<div class="line-box-left-inner ">
+							<div class="engtitle">
+								<p>Cust No.</p>
+							</div>
+
+							<div class="info">
+								<p>{{ header_dict.cust_no}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p style="font-size: 11px">رقم العميل</p>
+							</div>
+						</div>
+
+						<div class="line-box-right-inner ">
+							<div class="engtitle">
+								<p style="font-size: 12px">Sales Rep.</p>
+							</div>
+
+							<div class="info">
+								<p>{{header_dict.salesman_name}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p>المندوب</p>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+					{% endif%}
+				{% endfor %}
+			{% endif %}
+
+		{% endif %}
+
+
+		 <div class="footer clearfix">
+			<div class="border clearfix">
+			<div class="footerleft clearfix">
+				<div class="footerleftup">
+
+				</div>
+					<div class="footerleftdown">
+						 <p> {{footer_dict.amount_in_words}}</p>
+				</div>
+
+
+			</div>
+
+
+			<div class="footerright clearfix">
+
+				<div class="footerrighttext clearfix">
+					<p>Amount Before VAT | المبلغ قبل الضريبة</p>
+				</div>
+				<div class="footerrightbox clearfix">
+					<p>{{footer_dict.total_excl_vat}}</p>
+				</div>
+
+
+				<div class="footerrighttext clearfix">
+					<p>الخصم</p>
+				</div>
+				<div class="footerrightbox clearfix">
+					<p>{{footer_dict.discount}}</p>
+				</div>
+
+
+				<div class="footerrighttext clearfix">
+					<p>VAT | الضريبة</p>
+				</div>
+				<div class="footerrightbox clearfix">
+					<p>{{footer_dict.vat_amount}}</p>
+				</div>
+
+				<div class="footerrighttext clearfix">
+					<p>Add. Charges | رسوم إضافية</p>
+				</div>
+				<div class="footerrightbox clearfix">
+					<p>{{footer_dict.additional_charges_amt}}</p>
+				</div>
+
+
+				<div class="footerrighttext clearfix">
+					<p>Total Only | الاجمالي فقط</p>
+				</div>
+				<div class="footerrightbox clearfix">
+					<p>{{footer_dict.total_amount}}</p>
+				</div>
+			</div>
+
+		</div>
+			<div class="footerbottomtext">
+		  <span class="footertext">Address 4th phase industrial City – Jeddah – Saudi Arabia Tel, 966126380700</span>
+			<br/>
+			<span class="footertext">المملكة ال عربية السعودية – جدة – المدينة الصناعية – المرحلة الرابعة ت. 966126380700</span>
+				</div>
+		</div>
+
+{% endfor %}
+	</body>
+
+
+</html>

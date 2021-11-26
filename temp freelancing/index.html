@@ -1,0 +1,615 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="D:\QR_flat_file\HTML_Template\style.css" />
+
+	</head>
+
+	<body>
+	{{}}
+		<header class = "parent">
+			<div class= "header clearfix">
+					<img src="D:\QR_flat_file\HTML_Template\header 1.png" alt="Italian Trulli">
+			</div><header class = "parent">
+			<div class= "header clearfix">
+					<img src="D:\QR_flat_file\HTML_Template\header 1.png" alt="Italian Trulli">
+			</div>
+		</header>
+
+				<div class="vat clearfix">
+				<div class="vatleft clearfix">
+					<span>VAT :</span>
+					<span>{{ company_details_dict.company_vat_no}}</span>
+				</div>
+				<div class="vatright clearfix">
+					<span>{{ company_details_dict.company_vat_no}}</span>
+					<span>الرقم الضريبي</span>
+
+				</div>
+			</div>
+
+
+		<div class = "main clearfix">
+
+			<div class="invoiceTitle clearfix">
+			<div class="qrleft clearfix">
+				<p></p>
+				<p></p>
+			</div>
+
+			<div class="qrcenter clearfix">
+				<p>{{ header_dict.inv_type}}</p>
+				<img class="qr" src="{{header_dict.QR}}">
+			</div>
+
+
+			<div class="qrright clearfix">
+				<p></p>
+				<p></p>
+			</div>
+
+			</div>
+
+				<br/>
+				<br/>
+				<br/>
+			<div class="customerinfocontainer ">
+
+				<div class="line ">
+					<div class="line-box-left" >
+						<div class="line-box-left-inner">
+
+							<div class="info " style="width: 59%;text-align: center">
+								<p>{{ header_dict.inv_number}}</p>
+							</div>
+
+							<div class="arbtitle " style="width: 40%">
+								<p>رقم الفاتورة</p>
+							</div>
+						</div>
+
+						<div class="line-box-right-inner ">
+							<div class="engtitle">
+								<p>Ref No.</p>
+						</div>
+
+							<div class="info">
+								<p>{{ header_dict.ref_no_1}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p style="font-size: 13px">رقم المرجع</p>
+							</div>
+						</div>
+
+						</div>
+
+
+
+					<div class="line-box-right ">
+						<div class="line-box-left-inner ">
+								<div class="engtitle">
+								<p>Page</p>
+							</div>
+
+							<div class="info">
+								<p> #1 </p>
+							</div>
+
+							<div class="arbtitle">
+								<p>الصفحة</p>
+							</div>
+						</div>
+
+						<div class="line-box-right-inner ">
+							<div class="engtitle">
+								<p>Date</p>
+							</div>
+
+							<div class="info">
+								<p>{{ header_dict.date}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p>التاريخ</p>
+							</div>
+
+						</div>
+
+					</div>
+					</div>
+
+
+				<div class="line">
+					<div class="engtitle">
+						<p>Customer Name</p>
+					</div>
+
+					<div class = "info">
+						<p>{{ header_dict.cust_name}}</p>
+					</div>
+
+					<div class = "arbtitle">
+						<p>اسم العميل</p>
+					</div>
+				</div>
+
+				<div class="line">
+					<div class="line-box-left">
+						<div class="engtitle">
+							<p>ِAddress</p>
+						</div>
+
+						<div class="info">
+							<p>{{ header_dict.cust_address}}</p>
+						</div>
+
+						<div class="arbtitle">
+							<p>العنوان</p>
+						</div>
+					</div>
+
+					<div class="line-box-right">
+
+						<div class="engtitle">
+							<p>VAT No.</p>
+						</div>
+
+						<div class="info">
+							<p>{{ header_dict.cust_vat_no}}</p>
+						</div>
+
+						<div class="arbtitle">
+							<p>رقم الضريبي</p>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="line ">
+					<div class="line-box-left" >
+						<div class="line-box-left-inner">
+							<div class ="engtitle">
+								<p style = "font-size: 13px;">weight</p>
+							</div>
+							<div class="info ">
+								<p>{{ header_dict.total_weight}}</p>
+							</div>
+
+							<div class="arbtitle ">
+								<p>الوزن</p>
+							</div>
+						</div>
+
+						<div class="line-box-right-inner ">
+							<div class="engtitle">
+								<p>Ware No.</p>
+						</div>
+
+							<div class="info">
+								<p>{{ header_dict.warehouse_no}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p style="font-size: 12px">المستودع</p>
+							</div>
+						</div>
+
+						</div>
+
+
+
+					<div class="line-box-right ">
+						<div class="line-box-left-inner ">
+								<div class="engtitle">
+								<p>Cust No.</p>
+							</div>
+
+							<div class="info">
+								<p>{{ header_dict.cust_no}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p style="font-size: 11px">رقم العميل</p>
+							</div>
+						</div>
+
+						<div class="line-box-right-inner ">
+							<div class="engtitle">
+								<p style="font-size: 12px">Sales Rep.</p>
+							</div>
+
+							<div class="info">
+								<p>{{header_dict.salesman_name}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p>المندوب</p>
+							</div>
+
+						</div>
+
+					</div>
+					</div>
+				</div>
+		</header>
+
+				<div class="vat clearfix">
+				<div class="vatleft clearfix">
+					<span>VAT :</span>
+					<span>{{ company_details_dict.company_vat_no}}</span>
+				</div>
+				<div class="vatright clearfix">
+					<span>{{ company_details_dict.company_vat_no}}</span>
+					<span>الرقم الضريبي</span>
+
+				</div>
+			</div>
+
+
+		<div class = "main clearfix">
+
+			<div class="invoiceTitle clearfix">
+			<div class="qrleft clearfix">
+				<p></p>
+				<p></p>
+			</div>
+
+			<div class="qrcenter clearfix">
+				<p>{{ header_dict.inv_type}}</p>
+				<img class="qr" src="{{header_dict.QR}}">
+			</div>
+
+
+			<div class="qrright clearfix">
+				<p></p>
+				<p></p>
+			</div>
+
+			</div>
+
+				<br/>
+				<br/>
+				<br/>
+			<div class="customerinfocontainer ">
+
+				<div class="line ">
+					<div class="line-box-left" >
+						<div class="line-box-left-inner">
+
+							<div class="info " style="width: 59%;text-align: center">
+								<p>{{ header_dict.inv_number}}</p>
+							</div>
+
+							<div class="arbtitle " style="width: 40%">
+								<p>رقم الفاتورة</p>
+							</div>
+						</div>
+
+						<div class="line-box-right-inner ">
+							<div class="engtitle">
+								<p>Ref No.</p>
+						</div>
+
+							<div class="info">
+								<p>{{ header_dict.ref_no_1}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p style="font-size: 13px">رقم المرجع</p>
+							</div>
+						</div>
+
+						</div>
+
+
+
+					<div class="line-box-right ">
+						<div class="line-box-left-inner ">
+								<div class="engtitle">
+								<p>Page</p>
+							</div>
+
+							<div class="info">
+								<p> #1 </p>
+							</div>
+
+							<div class="arbtitle">
+								<p>الصفحة</p>
+							</div>
+						</div>
+
+						<div class="line-box-right-inner ">
+							<div class="engtitle">
+								<p>Date</p>
+							</div>
+
+							<div class="info">
+								<p>{{ header_dict.date}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p>التاريخ</p>
+							</div>
+
+						</div>
+
+					</div>
+					</div>
+
+
+				<div class="line">
+					<div class="engtitle">
+						<p>Customer Name</p>
+					</div>
+
+					<div class = "info">
+						<p>{{ header_dict.cust_name}}</p>
+					</div>
+
+					<div class = "arbtitle">
+						<p>اسم العميل</p>
+					</div>
+				</div>
+
+				<div class="line">
+					<div class="line-box-left">
+						<div class="engtitle">
+							<p>ِAddress</p>
+						</div>
+
+						<div class="info">
+							<p>{{ header_dict.cust_address}}</p>
+						</div>
+
+						<div class="arbtitle">
+							<p>العنوان</p>
+						</div>
+					</div>
+
+					<div class="line-box-right">
+
+						<div class="engtitle">
+							<p>VAT No.</p>
+						</div>
+
+						<div class="info">
+							<p>{{ header_dict.cust_vat_no}}</p>
+						</div>
+
+						<div class="arbtitle">
+							<p>رقم الضريبي</p>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="line ">
+					<div class="line-box-left" >
+						<div class="line-box-left-inner">
+							<div class ="engtitle">
+								<p style = "font-size: 13px;">weight</p>
+							</div>
+							<div class="info ">
+								<p>{{ header_dict.total_weight}}</p>
+							</div>
+
+							<div class="arbtitle ">
+								<p>الوزن</p>
+							</div>
+						</div>
+
+						<div class="line-box-right-inner ">
+							<div class="engtitle">
+								<p>Ware No.</p>
+						</div>
+
+							<div class="info">
+								<p>{{ header_dict.warehouse_no}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p style="font-size: 12px">المستودع</p>
+							</div>
+						</div>
+
+						</div>
+
+
+
+					<div class="line-box-right ">
+						<div class="line-box-left-inner ">
+								<div class="engtitle">
+								<p>Cust No.</p>
+							</div>
+
+							<div class="info">
+								<p>{{ header_dict.cust_no}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p style="font-size: 11px">رقم العميل</p>
+							</div>
+						</div>
+
+						<div class="line-box-right-inner ">
+							<div class="engtitle">
+								<p style="font-size: 12px">Sales Rep.</p>
+							</div>
+
+							<div class="info">
+								<p>{{header_dict.salesman_name}}</p>
+							</div>
+
+							<div class="arbtitle">
+								<p>المندوب</p>
+							</div>
+
+						</div>
+
+					</div>
+					</div>
+				</div>
+
+
+
+<!--			<div class="engtitle clearfix">-->
+<!--				<p>Date</p>-->
+<!--				<p>Ref. No.</p>-->
+<!--				<p>Customer Name</p>-->
+<!--			    <p>Customer Code</p>-->
+<!--				<p>Customer VAT</p>-->
+<!--				<p>Address</p>-->
+<!--			</div>-->
+
+<!--			<div class = "info clearfix">-->
+<!--				<p>{{ header_dict.date }}</p>-->
+<!--				<p>{{ header_dict.ref_no }}</p>-->
+<!--				<p>{{ header_dict.cust_name }}</p>-->
+<!--				<p>{{ header_dict.cust_no}}</p>-->
+<!--				<p> {{header_dict.cust_vat_no}}</p>-->
+<!--				<p>{{header_dict.cust_address}}</p>-->
+<!--			</div>-->
+
+<!--			<div class="arbtitle clearfix">-->
+<!--				<p>التاريخ</p>-->
+<!--				<p>رقم المرجع</p>-->
+<!--				<p>اسم العميل</p>-->
+<!--				<p>كود العميل</p>-->
+<!--				<p>رقم ضريبة العميل</p>-->
+<!--				<p>العنوان</p>-->
+
+<!--			</div>-->
+			</div>
+			</div>
+
+			<div class = itemstable>
+				<table>
+					<tr>
+						<th  style="max-width: 20px;border: none">item No.</th>
+						<th  style="min-width: 200px;border: none">Item Name</th>
+						<th  style="min-width: 50px;border: none">Unit</th>
+						<th  style="min-width: 80px;border: none">Quantity</th>
+						<th  style="min-width: 80px;border:none">Unit Price</th>
+						<th  style="min-width: 80px;border: none">Excl.VAT</th>
+						<th  style="max-width: 10px;border: none">VAT</th>
+						<th  style="min-width: 80px;border: none">VAT amt</th>
+						<th  style="min-width: 100px;border: none">Total</th>
+					</tr>
+					<tr>
+						<th style="border: none">رقم الصنف</th>
+						<th style="border: none">البيان</th>
+						<th style="border: none">الوحدة</th>
+						<th style="border:none">الكمية</th>
+						<th style="border: none">سعر الوحدة</th>
+						<th style="border:none">من غير ضريبة</th>
+						<th style="border: none">الضريبة</th>
+						<th style="border: none">قيمة ضريبة</th>
+						<th style="border: none">الاجمالي</th>
+					</tr>
+					{% for n in range(product_dict.item_no| length) %}
+					<tr>
+						<td>
+							{{product_dict.item_no[n]}}
+						</td>
+						<td>
+							{{product_dict.item_english_name[n]}}
+						</td>
+						<td>
+							{{product_dict.Unit[n]}}
+						</td>
+						<td>
+							{{product_dict.quantity[n]}}
+						</td>
+						<td>
+							{{product_dict.price[n]}}
+						</td>
+						<td>
+							{{product_dict.excl_vat[n]}}
+						</td>
+						<td>
+							{{product_dict.vat[n]}}
+						</td>
+						<td>
+							{{product_dict.vat_amt[n]}}
+						</td>
+							<td>
+							{{product_dict.total[n]}}
+						</td>
+					</tr>
+
+					{% endfor %}
+				</table>
+			</div>
+
+
+
+		 <div class="footer clearfix">
+			<div class="border clearfix">
+			<div class="footerleft clearfix">
+				<div class="footerleftup">
+
+				</div>
+<!--					<div class="footerleftdown">-->
+<!--						&lt;!&ndash; <p> {{footer_dict.amount_in_words}}</p> &ndash;&gt;-->
+<!--				</div>-->
+
+
+			</div>
+
+
+			<div class="footerright clearfix">
+
+				<div class="footerrighttext clearfix">
+					<p>Amount Before VAT | المبلغ قبل الضريبة</p>
+				</div>
+				<div class="footerrightbox clearfix">
+					<p>{{footer_dict.total_excl_vat}}</p>
+				</div>
+
+
+				<div class="footerrighttext clearfix">
+					<p>الخصم</p>
+				</div>
+				<div class="footerrightbox clearfix">
+					<p>{{footer_dict.discount}}</p>
+				</div>
+
+
+				<div class="footerrighttext clearfix">
+					<p>VAT | الضريبة</p>
+				</div>
+				<div class="footerrightbox clearfix">
+					<p>{{footer_dict.vat_amount}}</p>
+				</div>
+
+				<div class="footerrighttext clearfix">
+					<p>Add. Charges | رسوم إضافية</p>
+				</div>
+				<div class="footerrightbox clearfix">
+					<p>{{footer_dict.additional_charges_amt}}</p>
+				</div>
+
+
+				<div class="footerrighttext clearfix">
+					<p>Total Only | الاجمالي فقط</p>
+				</div>
+				<div class="footerrightbox clearfix">
+					<p>{{footer_dict.total_amount}}</p>
+				</div>
+			</div>
+
+		</div>
+			<div class="footerbottomtext">
+		  <span class="footertext">Address 4th phase industrial City – Jeddah – Saudi Arabia Tel, 966126380700</span>
+			<br/>
+			<span class="footertext">المملكة ال عربية السعودية – جدة – المدينة الصناعية – المرحلة الرابعة ت. 966126380700</span>
+				</div>
+		</div>
+
+
+
+	</body>
+
+
+</html>
